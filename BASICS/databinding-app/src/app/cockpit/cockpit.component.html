@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-12">
+      <div class="col-sm-5">
+        <label> Student Name </label>
+        <input class="form-control" id="sname" type="text" [(ngModel)]="sname" />
+      </div>
+      <div class="col-sm-5">
+        <label> USN</label>
+        <input class="form-control" id="usn" type="text" [(ngModel)]="usn" />
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-success" type="button" (click)="addStudent()">ADD</button>
+
+      <button class="btn btn-primary" type="button" (click)="printStudent()">PRINT</button>
+    </div>
+
+  </div>
+
+  

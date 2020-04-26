@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Student Information</h1>
+  <app-cockpit (onaddcock)="onAddAPP($event)"
+   (onprintcock)="onPrintAPP($event)"></app-cockpit>
+  <hr>
+
+  <div class="panel panel-default">
+    <app-viewstudent [content]="contentApp"></app-viewstudent>
+  </div>
+
+</div>
