@@ -1,0 +1,25 @@
+<h1 class="align-middle">Bank INFO</h1>
+
+<div class="row">
+  <div class="col-sm-5">
+
+    <div class="form-group">
+      <label>Account Name</label>
+      <input type="text" name="accName" class="form-control" [(ngModel)]="accName">
+
+      <label>Account Number</label>
+      <input type="text" name="accNumber" class="form-control" [(ngModel)]="accNumber">
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-sm-5">
+
+    <div class="btn btn-group">
+      <button type="button" class="btn btn-primary" (click)="register()">Register</button>
+      <button type="button" class="btn btn-danger" (click)="getBalance()">Balance</button>
+    </div>
+    </div>
+  </div>

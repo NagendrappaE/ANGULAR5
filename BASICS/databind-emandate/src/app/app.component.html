@@ -1,0 +1,14 @@
+<h1>Emandate APP</h1>
+<div class="container">
+
+  <app-account (registerevent)="APPRegister($event)"
+  (balanceevent)="APPBalanceShow($event)"></app-account>
+    <hr>
+  
+  <app-info [balance]="APPbalance"
+         [accNumber]="APPaccNumber"
+         [accountType]="APPaccountType"
+         [isBalance]="APPisBalance"
+         [isRegistered]="APPisRegistered"></app-info>
+
+</div>
