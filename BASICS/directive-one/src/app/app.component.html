@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="addnumbers()"> Only Show odd number</button>
+
+      <br>
+      <ul class="list-group">
+
+     <!--   <div *ngIf="onlyOdd">
+          <li class="list-group-item" [ngClass]="{odd:item % 2!==0 }"
+            [ngStyle]="{background: item % 2!==0 ? 'yellow':'transperent'}" *ngFor="let item of oddNumbers">{{item}}
+          </li>
+
+        </div>
+
+        <div *ngIf="!onlyOdd">
+          <li class="list-group-item" [ngClass]="{odd: item % 2!==0 }"
+            [ngStyle]="{background: item % 2!==0 ? 'yellow':'transperent'}" *ngFor="let item of evenNumbers">{{item}}
+          </li>
+        </div> -->
+
+        <div *appUnlessdirective="onlyOdd">
+          <li class="list-group-item" [ngClass]="{odd: item % 2!==0 }"
+            [ngStyle]="{background: item % 2!==0 ? 'yellow':'transperent'}" *ngFor="let item of evenNumbers">{{item}}
+          </li>
+        </div>
+      </ul>
+
+
+
+      <p appBasicHighlight>Hellow basic highlight paragraph</p>
+
+      <p appBetterHighlighter [defaultColor]="'blue'" [highlightedColor]="'violet'"> Hellow better highlight</p>
+    
+      <div  [ngSwitch]="value">
+        <p *ngSwitchCase="1">
+        first Paragrapa
+        </p>
+        <p *ngSwitchCase="2">
+        second paragraph
+        </p>
+        <p *ngSwitchCase="3">
+        third paragraph
+        </p>
+        <p *ngSwitchCase="4">
+        fourth paragraph
+        </p>
+    
+        <p *ngSwitchDefault>
+        fifth paragraph
+        </p>
+        
+    
+        </div>
+    </div>
+
+    
+
+  </div>
+</div>

@@ -6,13 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'shopping-app';
+  title = 'directive-one';
 
-loadedFeature:string
+  numbers =[1,2,3,4,5]
 
-onNavigate(inp){
+  oddNumbers=[1,3,5]
+  evenNumbers=[2,4]
+ 
+  onlyOdd=false
 
-  this.loadedFeature=inp.feature
-console.log('inside the onNavigate method ...'+inp.feature)
-}
+  value=4
+
+  addnumbers(){
+    this.onlyOdd=true
+  }
 }

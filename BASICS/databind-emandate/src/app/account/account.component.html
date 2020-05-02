@@ -5,10 +5,13 @@
 
     <div class="form-group">
       <label>Account Name</label>
-      <input type="text" name="accName" class="form-control" [(ngModel)]="accName">
+      <!-- <input type="text" name="accName" class="form-control" [(ngModel)]="accName"> -->
+       <input type="text" name="accName" class="form-control" #accountName>
 
       <label>Account Number</label>
-      <input type="text" name="accNumber" class="form-control" [(ngModel)]="accNumber">
+      <!-- <input type="text" name="accNumber" class="form-control" [(ngModel)]="accNumber"> -->
+      <input type="text" name="accNumber" class="form-control" #accountNumber>
+
     </div>
   </div>
 
@@ -18,8 +21,8 @@
   <div class="col-sm-5">
 
     <div class="btn btn-group">
-      <button type="button" class="btn btn-primary" (click)="register()">Register</button>
-      <button type="button" class="btn btn-danger" (click)="getBalance()">Balance</button>
+      <button type="button" class="btn btn-primary" (click)="register(accountNumber,accountName)">Register</button>
+      <button type="button" class="btn btn-danger" (click)="getBalance(accountNumber,accountName)">Balance</button>
     </div>
     </div>
   </div>

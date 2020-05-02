@@ -15,5 +15,8 @@ new Ingredient('ragi','12')]
 
   ngOnInit() {
   }
+  OnAddItem(inp:Ingredient){
+this.ingrediants.push(inp)
+  }
 
 }

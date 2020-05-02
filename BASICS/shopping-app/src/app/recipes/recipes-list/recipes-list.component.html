@@ -7,21 +7,9 @@
 <hr>
 <div class="row">
     <div class="col-md-12">
+        <app-recipes-item *ngFor="let recipeEl of recipes" [recipeEv]="recipeEl" (onSelectRecipeEvnt)="onRecipeSelected(recipeEl)" > 
 
-
-        <a href="#" class="list-group-item clearfix" *ngFor="let rec of recipes">
-            <div class="float-left">
-                <h4 class="list-group-item-heading">{{rec.name}}</h4>
-                <p class="list-group-item-text">{{rec.description}}</p>
-
-            </div>
-            <span class="float-right">
-                <img [src]="rec.imagePath" alt="" class="img-responsive" style="max-height: 50px;">
-
-            </span>
-        </a>
-
-        <app-recipes-item></app-recipes-item>
+        </app-recipes-item>
     </div>
 
 </div>

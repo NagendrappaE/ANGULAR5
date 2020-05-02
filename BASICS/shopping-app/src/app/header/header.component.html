@@ -5,20 +5,22 @@
 
     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
         <div class="navbar-nav">
-            <a href="#" class="nav-item nav-link active">Recipes</a>
-            <a href="#" class="nav-item nav-link">Shopping List</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Manage</a>
-                <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Save Data</a>
-                    <a href="#" class="dropdown-item">Fetch data</a>
-                </div>
-            </div>
+            <a href="#" class="nav-item nav-link active" (click)="onSelect('recipe')">Recipes</a>
+            <a href="#" class="nav-item nav-link" (click)="onSelect('shoping')">Shopping List</a>
+            
         </div>
         
-        <!--<div class="navbar-nav">
+       <!-- <div class="navbar-nav">
             <a href="#" class="nav-item nav-link">Login</a>
         </div>-->
+
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Manage</a>
+            <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">Save Data</a>
+                <a href="#" class="dropdown-item">Fetch data</a>
+            </div>
+        </div>
 
       </div>
     </div>

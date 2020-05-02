@@ -20,21 +20,21 @@ export class AccountComponent implements OnInit {
 
   ngOnInit() {
   }
-  register() {
-    console.log('inside account ac ' + this.accNumber)
-    this.registerevent.emit({ AccisRegistered: this.isRegistered, AccaccountNumber: this.accNumber })
+  register(inp1,inp2) {
+    console.log('inside account ac ' + inp1.value)
+    this.registerevent.emit({ AccisRegistered: this.isRegistered, AccaccountNumber:inp1.value })
 
   }
-  getBalance() {
-    if (this.accNumber == '3335101002388') {
+  getBalance(inp1,inp2) {
+    if (inp1.value == '3335101002388') {
       this.accountType = 'Current'
-    } else if (this.accNumber == '123456789') {
+    } else if (inp1.value == '123456789') {
       this.accountType = 'CC'
     } else {
       this.accountType = 'Savings'
 
     }
     this.balance++
-    this.balanceevent.emit({ AaccountType: this.accountType, Abalance: this.balance, AisBalance: true, AaccountNumber: this.accNumber })
+    this.balanceevent.emit({ AaccountType: this.accountType, Abalance: this.balance, AisBalance: true, AaccountNumber:inp1.value })
   }
 }
