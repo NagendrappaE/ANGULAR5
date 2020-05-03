@@ -1,0 +1,17 @@
+<div class="container p-3 my-3 border">
+    <div class="row">
+        <div class="col-12">
+
+            <p> {{acObj.acName}}</p>
+            <hr>
+            <p>this account is {{acObj.status}}</p>
+            <button type="button" class="btn btn-outline-primary" (click)="onSet('active')">set to 'Active'</button>
+            <button type="button" class="btn btn-outline-primary" (click)="onSet('inactive')">set to 'InActive'</button>
+            <button type="button" class="btn btn-outline-primary" (click)="onSet('unlnown')">set to 'UnKnown'</button>
+
+
+        </div>
+
+
+    </div>
+</div>

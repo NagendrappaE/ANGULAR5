@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+
+      <div class="form-group">
+
+        <label>Issue symbol</label>
+        <input type="text" maxlength="10" class="form-control" name="issueSymbol" #issueSymbol>
+
+        <div class="form-group">
+          <label for="sel1">InvestorCatogory:</label>
+          <select class="form-control" id="sel1" #invcat>
+            <option value="ind">Individual</option>
+            <option value="emp">Employee</option>
+            <option value="hni">HNI</option>
+            <option value="rni">Retail Investors</option>
+          </select>
+        </div>
+
+      </div>
+
+      <button type="submit" class="btn btn-primary"
+        (click)="createIssueMaster(issueSymbol.value,invcat.value)">Submit</button>
+
+
+
+
+
+
+    </div>
+  </div>
+
+</div>
+<hr>

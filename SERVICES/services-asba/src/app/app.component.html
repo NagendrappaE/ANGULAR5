@@ -1,0 +1,5 @@
+<app-issuemaster ></app-issuemaster>
+
+<app-investorcatogory *ngFor="let issueMasterObj of issueMasterList; let i=index"
+ [issueMasterInv]="issueMasterObj"
+  [id]="i"></app-investorcatogory>

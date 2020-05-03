@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label class="black">Account Name</label>
+                <input type="text" class="form-control" name="accountName" #accountName>
+
+                <div class="form-group">
+                    <label for="sel1">Select list:</label>
+                    <select class="form-control" id="sel1" #status>
+                        <option value="active">Active</option>
+                        <option value="deactive">Deactive</option>
+                        <option value="inactive">Inactive</option>
+
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="addAccount(accountName.value,status.value)">Add
+                    Account</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+

@@ -1,0 +1,3 @@
+<app-newaccount (newaccountevent)="onCreateNew($event)"></app-newaccount>
+<app-account *ngFor="let item of accountObj; let i=index"
+ [acObj]="item" [id]="i" (statusChanged)="updateStatus($event)"></app-account>
