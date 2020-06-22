@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-sm-8">
+        <input type="text" class="form-control" id="email" readonly  name="email" [(ngModel)]="originatorId">
+    </div>
+    <div class="col-sm-8">
+        <input type="text" class="form-control"  [(ngModel)]="ifsc">
+    </div>
+    <div class="col-sm-8">
+            <input type="number" class="form-control" placeholder="Enter password" [(ngModel)]="accountNumber">
+        </div>
+        <!-- <div class="col-sm-8">
+                <input type="password" class="form-control" placeholder="Enter password" name="pswd">
+            </div> -->
+    <div class="col-sm-8">
+        <button class="btn btn-primary" (click)="updateOriginator(accountNumber,ifsc)"> update</button>
+    </div>
+</div>

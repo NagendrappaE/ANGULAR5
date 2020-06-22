@@ -1,0 +1,23 @@
+<div class="row">
+
+    <div class="col-sm-8">
+
+        <ul *ngFor="let item of orglist; let i=index">
+            <a [routerLink]="[item.oid]" [queryParams]="{editorg:item.oid,cancelorg:true}" routerLinkActive="router-link-active" >{{item.oname}}</a>
+            <button class="btn btn-dark" [routerLink]="[item.oid,'/edit']" routerLinkActive="router-link-active" >modify</button>
+
+        </ul>
+        
+    </div>
+
+
+
+    <hr>
+    <div class="col-sm-4">
+
+        <app-editoriginator></app-editoriginator>
+        <app-singleoriginator></app-singleoriginator>
+
+    </div>
+
+</div>
