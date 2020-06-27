@@ -5,9 +5,13 @@
 
     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
         <div class="navbar-nav">
-            <a href="#" class="nav-item nav-link active" (click)="onSelect('recipe')">Recipes</a>
+            <!-- <a href="#" class="nav-item nav-link active" (click)="onSelect('recipe')">Recipes</a>
             <a href="#" class="nav-item nav-link" (click)="onSelect('shoping')">Shopping List</a>
-            
+           -->
+            <a class="nav-item nav-link" [routerLink]="['/recipes']" routerLinkActive="router-link-active" >Recipes</a>
+            <a class="nav-item nav-link" [routerLink]="['/shoping-list']" routerLinkActive="router-link-active" >Shopping List</a>
+          
+
         </div>
         
        <!-- <div class="navbar-nav">
@@ -15,10 +19,10 @@
         </div>-->
 
         <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Manage</a>
+            <a style="cursor: pointer" class="nav-link dropdown-toggle" data-toggle="dropdown">Manage</a>
             <div class="dropdown-menu">
-                <a href="#" class="dropdown-item">Save Data</a>
-                <a href="#" class="dropdown-item">Fetch data</a>
+                <a style="cursor: pointer" class="dropdown-item">Save Data</a>
+                <a style="cursor: pointer" class="dropdown-item">Fetch data</a>
             </div>
         </div>
 
