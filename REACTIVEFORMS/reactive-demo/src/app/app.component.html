@@ -1,0 +1,50 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+
+                <div [formGroupName]="'userData'">
+                    <div class="form-group">
+                        <label for="username">User Name:</label>
+                        <input type="text" class="form-control" id="username" [formControlName]="'username'">
+                        <span
+                            *ngIf="!signUpForm.get('userData.username').valid && signUpForm.get('userData.username').touched">Please
+                            enter the valid Name!</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Id:</label>
+                        <input type="email" class="form-control" id="email" [formControlName]="'email'">
+                        <span
+                            *ngIf="!signUpForm.get('userData.email').valid && signUpForm.get('userData.email').touched">Please
+                            enter Valid email !</span>
+                    </div>
+                </div>
+
+                <div class="form-check-inline" *ngFor="let gender of genders">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="gender" [formControlName]="'gender'"
+                            [value]="gender"> {{gender}}
+                    </label>
+                </div>
+
+                <div formArrayName="hobbies">
+                    <h1>Your Hobbies</h1>
+                    <button class="btn btn-default" (click)="addHobbies()"> Add Hobbies</button>
+              <div class="form-group" *ngFor="let hobbyControl of  signUpForm.get('hobbies').controls; let i=index">
+                  <input type="text" class="form-control" formControlName="hobbyControl">
+              </div>
+                </div>
+
+                <span *ngIf="!signUpForm.valid && signUpForm.touched">Please enter the valid details</span>
+                <div>
+                    <button class="btn btn-primary">Register</button>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+<router-outlet></router-outlet>
