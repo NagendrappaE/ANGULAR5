@@ -16,9 +16,9 @@
       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
         Manage Recipe
       </button>
-      <div class="dropdown-menu">
+      <div class="dropdown-menu" style="cursor: pointer">
         <li> <a class="dropdown-item"  (click)="toAddShopingList()">To Shoping List</a></li>
-        <li><a class="dropdown-item" >Edit Recipe</a></li>
+        <li><a class="dropdown-item" [routerLink]="['edit']" routerLinkActive="router-link-active" >Edit Recipe</a></li>
         <li><a class="dropdown-item" >Delete Recipe</a></li>
 
       </div>

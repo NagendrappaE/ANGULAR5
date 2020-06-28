@@ -1,28 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Ingredient } from '../shared/Ingredient.model';
 import { ShopingService } from './shoping.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-shoping-list',
   templateUrl: './shoping-list.component.html',
   styleUrls: ['./shoping-list.component.css']
 })
-export class ShopingListComponent implements OnInit {
+export class ShopingListComponent implements OnInit,OnDestroy {
+  
+  subscriptionIndgrades:Subscription
+  
+  ngOnDestroy(): void {
 
-  ingrediants:Ingredient[]
+    this.subscriptionIndgrades.unsubscribe()
+    //throw new Error("Method not implemented.");
+  }
 
-  constructor(private shopingService:ShopingService) { }
+  ingrediants: Ingredient[]
+
+  constructor(private shopingService: ShopingService) { }
 
   ngOnInit() {
-    this.ingrediants=this.shopingService.getIngredient()
+    this.ingrediants = this.shopingService.getIngredient()
 
-    this.shopingService.ingredientChanged.subscribe(
+  this.subscriptionIndgrades=  this.shopingService.ingredientChanged.subscribe(
 
-      (ingArr:Ingredient[])=>{
-this.ingrediants=ingArr
+      (ingArr: Ingredient[]) => {
+        this.ingrediants = ingArr
       }
     )
   }
-  
+
 
 }

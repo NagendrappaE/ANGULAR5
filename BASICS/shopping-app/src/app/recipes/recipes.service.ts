@@ -8,7 +8,6 @@ import { ShopingService } from '../shoping-list/shoping.service';
 })
 export class RecipesService {
 
- onSelectRecipe = new EventEmitter<Recipe>()
 
   constructor(private shopService:ShopingService) { }
 
@@ -28,6 +27,10 @@ export class RecipesService {
   addIngredientToShopingList(ingArr:Ingredient[]){
 this.shopService.addIngrediants(ingArr)
 
+  }
+
+  getRecipeByIndex(index:number):Recipe{
+    return this.recipes.slice()[index]
   }
 
  
