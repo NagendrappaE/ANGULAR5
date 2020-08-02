@@ -1,0 +1,88 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-xs-4">
+
+
+      <h1>Welcome to angular FORM demo</h1>
+
+
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          
+        <div id="user-id" 
+        ngModelGroup="userData"
+        
+        #userData="ngModelGroup">
+        <div class="form-group">
+              <label for="userName">User Name:</label>
+              <input type="text" class="form-control" placeholder="Enter user Name"  ngModel name="userName" required>
+            </div>
+            <button type="submit"  (click)="setSuggestedName()"class="btn btn-default">Suggest an user name</button>
+
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" placeholder="Enter email" ngModel 
+           name="email"
+            required
+             email
+             #emailId="ngModel">
+             <span *ngIf="!emailId.valid && emailId.touched">Please enter the valid email</span>
+        </div>
+      </div>
+        <div class="form-group">
+            <label for="secrete">Secrete Question:</label>
+            <select class="form-control" [ngModel]="defaultQuestion" 
+             name="secrete">
+              <option value="pet">Your First Pet?</option>
+              <option value="teacher">Your First Tracher?</option>
+  
+            </select>
+          </div>
+
+          <div class="form-group">
+              <label for="comment">QuestionAnswer:</label>
+              <textarea class="form-control" rows="3" name="questionanswer" [(ngModel)]="answer"></textarea>
+            </div>
+       
+          <p>your Reply:{{answer}}</p>
+
+
+            <div class="form-check" *ngFor="let item of gender">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" ngModel name="genderVal">{{item}}
+                </label>
+              </div>
+
+
+          <div>
+              <span *ngIf="!userData.valid &&userData.touched">Please input valid data!</span>
+          </div>
+          
+        <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+  </div>
+
+
+  <div class="row">
+      <div class="col-sm-4" *ngIf="submitFlg">
+<h6>Your Form Data </h6>
+
+<p>Your Name : {{user.userName}}</p>
+<p>Your Email :{{user.emailId}}</p>
+<p>Your QuestionAnswer :{{user.secreteQuestion}}</p>
+<p>Your answer :{{user.answer}}</p>
+<p>Your gender :{{user.gender}}</p>
+
+
+
+
+      </div>
+</div>
+
+</div>
+
+<router-outlet></router-outlet>

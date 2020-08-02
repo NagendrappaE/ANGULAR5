@@ -1,0 +1,178 @@
+
+<div class="container pt-3">
+  <form  [formGroup]="emandateForm" (ngSubmit)="onSubmit()">
+    <h6>Bank Info</h6>
+    <div [formGroupName]="'bankinfoForm'">
+    <div class="row">
+      <div class="col-sm-6">
+
+        <div class="form-group">
+          <label for="usr">Originator ID</label>
+          <input type="text" class="form-control" id="originatorId" [formControlName]="'originatorId'">
+  <span *ngIf="!emandateForm.get('bankinfoForm.originatorId').valid && emandateForm.get('bankinfoForm.originatorId').touched ">
+
+   originator Name is Invalid
+
+  </span>
+        </div>
+
+        <div class="form-group">
+          <label for="pwd">Sponser Bank </label>
+          <input type="text" maxlength="11"  class="form-control" id="sponserBankCode" [formControlName]="'sponserBankCode'">
+        </div>
+
+<span *ngIf="!emandateForm.get('bankinfoForm.sponserBankCode').valid && emandateForm.get('bankinfoForm.sponserBankCode').touched ">The sponser Bank code is InValid</span>
+      </div>
+
+      <div class="col-sm-6">
+
+        <div class="form-group">
+          <label for="usr">OriginatorName</label>
+          <input type="text"  maxlength="40" class="form-control" id="originatorName" [formControlName]="'originatorName'">
+      <span *ngIf="!emandateForm.get('bankinfoForm.originatorName').valid && emandateForm.get('bankinfoForm.originatorName').touched ">
+        The originator Name is invalid
+      </span>
+        </div>
+
+        <div class="form-group">
+          <label for="pwd">Loan Ref Number</label>
+          <input type="number" class="form-control" id="loanNumber" maxlength="20" [formControlName]="'loanNumber'">
+      
+      <span *ngIf="!emandateForm.get('bankinfoForm.loanNumber').valid && emandateForm.get('bankinfoForm.loanNumber').touched" >The loan reference number is invalid</span>
+      
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-sm-6">
+
+        <div class="form-group">
+          <label for="usr">EMI Start Date</label>
+          <input type="date" class="form-control" id="emiStartDate" [formControlName]="'emiStartDate'">
+        </div>
+
+
+        <!-- <div class="form-group" >
+          <label for="exampleFormControlSelect1">Amount Type</label>
+          <select  class="form-control" id="amountType" formControlName="amtType" (change)="changeCity($event)">
+            <option value=""disabled>Choose Amount Type</option>
+
+            <option *ngFor="let amt of amountTypeAr"  [ngValue]="amt" >{{amt}}</option>
+          
+
+          </select>
+        </div>  -->
+
+        <!-- <div class="form-group">
+          <label for="exampleFormControlSelect1">Mandate Catogory </label>
+          <select class="form-control" id="mandateCatogory" formControlName="mandateCatogory">
+            <option>API mandate</option>
+            <option>Electicity Bill</option>
+
+          </select>
+        </div> -->
+
+
+
+      </div>
+      <div class="col-sm-6">
+
+        <div class="form-group">
+          <label for="usr">EMI End Date</label>
+          <input type="date" class="form-control" id="emiEndDate" [formControlName]="'emiEndDate'">
+        </div>
+
+
+        <div class="form-group">
+          <label for="pwd"> EMI Amount </label>
+          <input type="text" class="form-control" maxlength="11" id="amount" [formControlName]="'amount'">
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+    <h6>Customer Info</h6>
+    <div class="row" [formGroupName]="'customerInfoForm'">
+      <div class="col-sm-6">
+
+        <div class="form-group">
+          <label for="usr">Payer Name</label>
+          <input type="text" class="form-control" id="payerName" [formControlName]="'payerName'">
+          <span *ngIf="!emandateForm.get('customerInfoForm.payerName').valid && emandateForm.get('customerInfoForm.payerName').touched" >The payer Name is invalid</span>
+     
+        </div>
+
+
+
+        <div class="form-group">
+          <label for="usr">Debit Number</label>
+          <input type="number" class="form-control" id="accountNumber"  maxlength="11" [formControlName]="'accountNumber'">
+          <span *ngIf="!emandateForm.get('customerInfoForm.accountNumber').valid && emandateForm.get('customerInfoForm.accountNumber').touched" >The account number number is invalid</span>
+     
+        </div>
+
+        <div class="form-group">
+          <label for="pwd">Email Id</label>
+          <input type="text" class="form-control" maxlength="50" id="email" [formControlName]="'email'">
+
+          <span *ngIf="!emandateForm.get('customerInfoForm.email').valid && emandateForm.get('customerInfoForm.email').touched" >The email is invalid</span>
+
+        </div>
+
+
+      </div>
+      <div class="col-sm-6">
+
+        <!-- <div class="form-group">
+          <label for="exampleFormControlSelect1">Account Type</label>
+          <select class="form-control" id="accountType" formControlName="accountType">
+            <option>Savings</option>
+            <option>Curent</option>
+
+          </select>
+        </div> -->
+
+        <div class="form-group">
+          <label for="pwd">Account Bank IFSC</label>
+          <input type="text" maxlength="11" class="form-control" id="destbankIFSC" [formControlName]="'destbankIFSC'">
+     
+          <span *ngIf="!emandateForm.get('customerInfoForm.destbankIFSC').valid && emandateForm.get('customerInfoForm.destbankIFSC').touched" >The Destination Bank is invalid</span>
+     
+        </div>
+
+        <div class="form-group">
+          <label for="usr">Mobile Number</label>
+          <input type="text" maxlength="14" class="form-control" id="mobileNumber" [formControlName]="'mobileNumber'">
+          <span *ngIf="!emandateForm.get('customerInfoForm.mobileNumber').valid && emandateForm.get('customerInfoForm.mobileNumber').touched" >The Mobile number is invalid</span>
+     
+        </div>
+
+
+      </div>
+    </div>
+
+    <span *ngIf="!emandateForm.valid && emandateForm.touched">Please enter the valid details</span>
+
+    <div class="col text-center">
+      <button class="btn btn-primary" >Register</button>
+      <!-- <button class="btn btn-danger" >Cancel</button> -->
+
+
+    </div>
+
+  </form>
+
+
+</div>
+
+
+
+<router-outlet></router-outlet>

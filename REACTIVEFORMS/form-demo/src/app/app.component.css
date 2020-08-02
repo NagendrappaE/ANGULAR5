@@ -1,0 +1,16 @@
+label{
+
+    color: black
+}
+
+.container{
+
+    margin-top: 10px;
+}
+input.ng-invalid{
+
+    border: 1px solid red
+}
+span{
+    color: red
+}
