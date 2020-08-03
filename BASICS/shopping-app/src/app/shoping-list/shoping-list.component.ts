@@ -33,5 +33,9 @@ export class ShopingListComponent implements OnInit,OnDestroy {
     )
   }
 
+  onEditItem(index:number){
+    console.log('inside the ShopingListComponent  the index value'+index)
+    this.shopingService.startedEditing.next(index)
+  }
 
 }

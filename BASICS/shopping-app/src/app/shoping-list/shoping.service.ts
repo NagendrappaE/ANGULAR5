@@ -11,6 +11,8 @@ export class ShopingService {
 
   ingredientChanged=new Subject<Ingredient[]>()
 
+  startedEditing=new Subject<number>()
+
   ingrediants: Ingredient[] = [new Ingredient('Rice', '200'),
   new Ingredient('ragi', '12')]
 
@@ -39,5 +41,28 @@ export class ShopingService {
 this.ingredientChanged.next(this.ingrediants.slice())
   }
 
+getIngredientByinx(id:number){
+
+  return this.ingrediants[id]
+
+}
+
+updateIngredient(indx:number,newIngredient:Ingredient){
+
+  this.ingrediants[indx]=newIngredient
+this.ingredientChanged.next (this.ingrediants.slice())
+
+}
+
+removeIngredientByIndex(inx:number){
+
+  console.log('inside the removeIngredientByIndex '+inx)
+this.ingrediants.splice(inx,1)  
+
+this.ingredientChanged.next(this.ingrediants.slice())
+
+console.log(this.ingrediants)
+
+}
 
 }

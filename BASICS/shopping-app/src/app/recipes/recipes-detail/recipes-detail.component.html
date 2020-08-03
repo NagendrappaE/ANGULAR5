@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-12">
-    <img [src]="selRecipe.imagePath" alt="{{selRecipe.name}}" class="img-responsive" style="max-height: 50px;">
+  <div class="col-md-12">
+    <img [src]="selRecipe.imagePath" alt="{{selRecipe.name}}" class="img-responsive" style="max-height: 200px;">
   </div>
 
 </div>
@@ -19,7 +19,7 @@
       <div class="dropdown-menu" style="cursor: pointer">
         <li> <a class="dropdown-item"  (click)="toAddShopingList()">To Shoping List</a></li>
         <li><a class="dropdown-item" [routerLink]="['edit']" routerLinkActive="router-link-active" >Edit Recipe</a></li>
-        <li><a class="dropdown-item" >Delete Recipe</a></li>
+        <li><a class="dropdown-item" (click)="onDeleteRecipe()">Delete Recipe</a></li>
 
       </div>
     </div>
