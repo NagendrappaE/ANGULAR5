@@ -1,0 +1,22 @@
+<div class="container pt-3">
+
+<div class="row">
+
+  <div class="col-md-12"> 
+    <input type="text" class="form-control" #name >
+
+    <button class="btn btn-success" (click)="onAddServer(name.value)">Add Server</button>
+    <button class="btn btn-primary" (click)="saveServer()">Save</button>
+
+    <button class="btn btn-success" (click)="getServers()">Get Servers</button>
+
+
+
+    <ul class="list-group" *ngFor="let srv of servers">
+      <li class="list-group-item">{{srv.name}}(ID::{{srv.id}})</li>
+        </ul>
+
+  </div>
+</div>
+
+</div>
