@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { ServerService } from './server.service';
-import { Server } from './server';
 import { map } from 'rxjs/operators';
+import { CustomResponse } from './CustomResponse';
+import { ServerData } from './server-data';
 
 
 @Component({
@@ -12,9 +13,11 @@ import { map } from 'rxjs/operators';
 export class AppComponent {
   title = 'http-demo';
 
+ serverdata : any 
+
   constructor(private serverService:ServerService){}
 
-
+appName=''
   servers=[{
     name:'app server',
     capacity:100,
@@ -57,21 +60,27 @@ this.serverService.storeServers(this.servers)
    console.log('----------')
 
 
-serverResp.subscribe((data: any[])=>{
+serverResp.subscribe((data: CustomResponse)=>{
   
 
 
-  data.map((rr)=>{
-    rr.name='SERVER'+rr.name
-    this.servers.push(rr)
-  })
+  console.log(data)
+
+
+  this.serverdata=data.data
+  
+  //this.servers.push(this.serverdata)
+  // data.map((rr)=>{
+  //   rr.name='SERVER'+rr.name
+  //   this.servers.push(rr)
+  // })
   //or below
   
-  // for( let aa of data){
-  //   aa.id=666666
-  //   this.servers.push(aa)
+  for( let aa of this.serverdata){
+      aa.id=666666
+      this.servers.push(aa)
 
-  // }
+    }
   
   console.log(this.servers)
 
@@ -82,11 +91,20 @@ serverResp.subscribe((data: any[])=>{
 
 console.log(error)
 })
+ }
 
+ getappName()
+ {
 
+  this.serverService.getappName().subscribe(
 
+    (resp :CustomResponse)=>{
+      console.log(resp)
+    this.appName=resp.data
+      },
+    (err)=>{console.log(err)}
+  )
 
-
-  }
+ }
   
 }

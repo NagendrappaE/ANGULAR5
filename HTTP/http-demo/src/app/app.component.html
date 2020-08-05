@@ -3,6 +3,8 @@
 <div class="row">
 
   <div class="col-md-12"> 
+
+    <h1>{{appName }}</h1>
     <input type="text" class="form-control" #name >
 
     <button class="btn btn-success" (click)="onAddServer(name.value)">Add Server</button>
@@ -10,6 +12,7 @@
 
     <button class="btn btn-success" (click)="getServers()">Get Servers</button>
 
+    <button class="btn btn-primary" (click)="getappName()">Get APPNAME</button>
 
 
     <ul class="list-group" *ngFor="let srv of servers">

@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 
 
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Server } from './server';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { CustomResponse } from './CustomResponse';
+import { ServerData } from './server-data';
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +13,22 @@ import { retry, catchError } from 'rxjs/operators';
 export class ServerService {
 
 
-   server:Server[]
+  //postURL='https://angular-ng-httpdemo.firebaseio.com/data.json'
 
+  postURL='http://localhost:8080/api/save'
   constructor(private httpclient: HttpClient) { }
 
   storeServers(servers: any[]) {
+
+    
 
     const header = new HttpHeaders({
       'content-Type': 'application/json',
       'uniqueId': '123'
     })
-    this.httpclient.post('https://angular-ng-httpdemo.firebaseio.com/data.json', servers, { headers: header })
+    this.httpclient.post(this.postURL, servers)
       .subscribe(
-        (response: Response) => {
+        (response: CustomResponse) => {
           console.log(response)
 
         },
@@ -36,22 +40,27 @@ export class ServerService {
   getServers() {
 
 
-   return   this.httpclient.get<
-  { name:string,
-   capacity:number,
-   id:Number
- }[]>('http://localhost:3000/employees').pipe(
+   return   this.httpclient.get('http://localhost:8080/api/getserver').pipe(
 
        catchError(this.handleError) // then handle the error
 
  )
     
 
-
     
 
 
   }
+
+
+ getappName(){
+
+  return this.httpclient.get('http://localhost:8080/api/add')
+
+  //catchError(this.handleError)
+  
+ }
+
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
