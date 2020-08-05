@@ -1,0 +1,19 @@
+<div class="bg-img">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="container">
+    <h1>Login</h1>
+  
+      <label for="email"><b>UserID</b></label>
+      <input type="text" placeholder="Enter Email" name="userId" formControlName="userId" >
+   <span  *ngIf="loginForm.get('userId').invalid && loginForm.get('userId').touched">Please enter UserID</span>
+
+   <br>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw"  formControlName="password" >
+      <span  *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">Please enter Password</span>
+      
+      <br>
+      <span *ngIf="loggedInFlg"> Invalid Creditials</span>
+
+      <button type="submit" class="btn" [disabled]="loginForm.invalid">Login</button>
+    </form>
+  </div>
